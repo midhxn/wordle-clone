@@ -1,4 +1,6 @@
 import React,{useEffect,useState} from 'react';
+import ReactDOM from 'react-dom/client';
+import Wordle from './components/Wordle.js'
 
 function App() {
 
@@ -11,11 +13,11 @@ function App() {
       const randSolution = json[Math.floor(Math.random()*json.length)];
       setSolution(randSolution.word);
     })
-    },[])
+    },[setSolution])
   return (
     <div className="App">
       <h1>Wordle Clone</h1>
-      {solution && <div>Solution:{solution}</div>  }
+      {solution && <Wordle solution={solution}/> }
     </div>
   )
 }
